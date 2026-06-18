@@ -1,0 +1,10 @@
+{
+    "display_name": "Reasoning Param Injector",
+    "loading_order": 100,
+    "requires": [],
+    "optional": [],
+    "js": "index.js",
+    "css": "style.css",
+    "version": "1.0.0",
+    "auto_update": true
+}
