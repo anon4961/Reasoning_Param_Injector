@@ -30,7 +30,7 @@ ST의 프리셋에는 `Request model reasoning` 설정이 있어 `reasoning_effo
 - 프록시가 모델명에 접두사(예: `[특가]/`, `[0.03]*/`)를 붙이면, 원래 OpenAI
   모델이라도 화이트리스트와 **정확히 일치하지 않아** 미통과가 됩니다.
 
-### 3) 미통과 모델은 어떻게 해결하나 — 그리고 ST의 한계
+### 3) 미통과 모델의 경우
 
 화이트리스트 미통과 모델이라도, ST의 **추가 파라미터(Additional Parameters,
 `custom_include_body`)** 에 직접 `reasoning_effort: high` 같은 값을 써넣으면
