@@ -1,0 +1,204 @@
+/* 프로필별 파라미터 주입기 v1.1 — ST 네이티브, 모바일 가로배치 */
+
+#pi_panel { font-size: 0.95em; }
+
+#pi_panel .pi-section { margin: 10px 0; }
+
+#pi_panel .pi-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+#pi_panel .pi-select,
+#pi_panel .pi-input,
+#pi_panel .pi-textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+#pi_panel .pi-input-sm { width: 70px; flex: 0 0 auto; }
+
+/* 버튼/입력 가로 배치 강제 (ST 모바일에서 세로로 쌓이는 것 방지) */
+#pi_panel .pi-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 8px;
+    align-items: center;
+    margin: 8px 0;
+}
+#pi_panel .pi-row.pi-row-wrap { flex-wrap: wrap; }
+
+#pi_panel .pi-row .menu_button {
+    flex: 1 1 auto;
+    margin: 0;
+    white-space: nowrap;
+    width: auto;
+    min-width: 0;
+    /* 세로쓰기 방지 */
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+}
+
+#pi_panel .pi-row .pi-input { flex: 1 1 auto; }
+#pi_panel .pi-row .pi-select { flex: 1 1 auto; }
+
+#pi_panel .pi-hr {
+    border: none;
+    border-top: 1px solid var(--SmartThemeBorderColor, rgba(128,128,128,0.35));
+    margin: 12px 0;
+}
+
+#pi_panel .pi-sub { opacity: 0.8; font-size: 0.9em; flex: 0 0 auto; }
+#pi_panel .pi-dim { opacity: 0.6; font-weight: 400; }
+
+/* 도움말 물음표 */
+#pi_panel .pi-help {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px; height: 16px;
+    margin-left: 5px;
+    border-radius: 50%;
+    border: 1px solid var(--SmartThemeBorderColor, rgba(128,128,128,0.5));
+    font-size: 11px;
+    line-height: 1;
+    cursor: help;
+    opacity: 0.85;
+    user-select: none;
+}
+#pi_panel .pi-help:hover { opacity: 1; }
+
+/* 탭하면 펼쳐지는 도움말 박스 */
+#pi_panel .pi-help-box {
+    margin: 4px 0 8px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--SmartThemeBorderColor, rgba(128,128,128,0.4));
+    background: var(--black30a, rgba(0,0,0,0.12));
+    font-size: 0.88em;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+/* 저장값 표시 라인 */
+#pi_panel .pi-saved {
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px dashed var(--SmartThemeBorderColor, rgba(128,128,128,0.3));
+    font-size: 0.9em;
+}
+
+/* 활성 모델 표시 — 회색배경/초록글씨 제거, ST 기본 텍스트색 */
+#pi_panel .pi-active-box {
+    padding: 8px 10px;
+    border: 1px solid var(--SmartThemeBorderColor, rgba(128,128,128,0.35));
+    border-radius: 6px;
+    line-height: 1.6;
+}
+#pi_panel .pi-active-model {
+    font-weight: 600;
+    word-break: break-all;
+    margin-bottom: 4px;
+}
+#pi_panel .pi-tag-row { font-size: 0.88em; }
+
+/* 판독 태그 — 배경 없이 테두리만, 가독성 확보 */
+#pi_panel .pi-tag {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 10px;
+    font-size: 0.85em;
+    border: 1px solid currentColor;
+}
+#pi_panel .pi-tag-native { color: #d08a2c; }  /* ST 자체 전송 = 주입 불필요 */
+#pi_panel .pi-tag-inject { color: #4a9d4a; }  /* 주입 대상 */
+
+#pi_panel .pi-status { margin-top: 4px; font-size: 0.9em; opacity: 0.9; }
+
+/* 로그 박스 */
+#pi_panel .pi-logbox {
+    margin-top: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--SmartThemeBorderColor, rgba(128,128,128,0.35));
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 0.85em;
+}
+#pi_panel .pi-log-empty { opacity: 0.6; padding: 6px; }
+#pi_panel .pi-log-item {
+    padding: 7px;
+    margin-bottom: 6px;
+    border-radius: 5px;
+    border: 1px solid var(--SmartThemeBorderColor, rgba(128,128,128,0.25));
+}
+#pi_panel .pi-log-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    font-weight: 600;
+    flex-wrap: wrap;
+}
+#pi_panel .pi-log-ts { opacity: 0.65; font-weight: 400; font-size: 0.9em; }
+#pi_panel .pi-log-meta { opacity: 0.75; font-size: 0.9em; margin: 3px 0; word-break: break-all; }
+#pi_panel .pi-log-inj { color: #4a9d4a; word-break: break-all; margin-top: 2px; }
+#pi_panel .pi-log-skip { color: #d08a2c; word-break: break-all; margin-top: 2px; }
+#pi_panel .pi-log-note { opacity: 0.9; margin-top: 3px; line-height: 1.4; }
+
+#pi_panel .pi-check { display: inline-flex; align-items: center; gap: 4px; flex: 0 0 auto; }
+
+#pi_panel .pi-textarea { resize: vertical; font-family: monospace; }
+
+/* 전체 삭제 버튼 — 위험 동작이라 살짝 구분 */
+#pi_panel .pi-danger {
+    opacity: 0.85;
+    font-size: 0.9em;
+}
+#pi_panel .pi-danger:hover { opacity: 1; }
+
+/* 커스텀 파라미터 */
+#pi_panel .pi-details { margin: 8px 0; }
+#pi_panel .pi-summary {
+    cursor: pointer;
+    font-weight: 600;
+    padding: 4px 0;
+}
+#pi_panel .pi-cp-row {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    align-items: center;
+    margin: 5px 0;
+}
+#pi_panel .pi-cp-key { flex: 1 1 40%; }
+#pi_panel .pi-cp-val { flex: 1 1 40%; }
+#pi_panel .pi-cp-del {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 2px 10px;
+    min-width: 0;
+}
+
+/* 자동매칭 결과 줄 */
+#pi_panel .pi-map {
+    margin-top: 4px;
+    font-size: 0.82em;
+    opacity: 0.85;
+}
+
+/* 제외할 파라미터 행 */
+#pi_panel .pi-ep-row {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    align-items: center;
+    margin: 5px 0;
+}
+#pi_panel .pi-ep-key { flex: 1 1 auto; }
+#pi_panel .pi-ep-del {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 2px 10px;
+    min-width: 0;
+}
